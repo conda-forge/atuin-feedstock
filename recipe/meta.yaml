@@ -1,5 +1,5 @@
 {% set name = "atuin" %}
-{% set version = "14.0.0" %}
+{% set version = "17.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/ellie/atuin/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: cccff6fcd27ab12038fc4be0f8418197813306d6210512850d21d2b749c6c797
+  sha256: 9c1bd5e180f53dd98248f582a36a4ead0670d3e155874a7217ec87cab3cea51a
 
 build:
   number: 0
