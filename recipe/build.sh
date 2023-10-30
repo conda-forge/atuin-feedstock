@@ -12,12 +12,12 @@ cargo install --locked --root "${PREFIX}" --path atuin
 # strip debug symbols
 "${STRIP}" "${PREFIX}/bin/atuin"
 
-mkdir -p ${PREFIX}/etc/bash_completion.d/atuin
-mkdir -p ${PREFIX}/share/zsh/site-functions/_atuin
-mkdir -p ${PREFIX}/share/fish/vendor_completions.d/atuin.fish
-atuin gen-completion --shell bash --out-dir ${PREFIX}/etc/bash_completion.d/atuin
-atuin gen-completion --shell zsh --out-dir ${PREFIX}/share/zsh/site-functions/_atuin
-atuin gen-completion --shell fish --out-dir ${PREFIX}/share/fish/vendor_completions.d/atuin.fish
+mkdir -p ${PREFIX}/etc/bash_completion.d/${PKG_NAME}
+mkdir -p ${PREFIX}/share/zsh/site-functions/_${PKG_NAME}
+mkdir -p ${PREFIX}/share/fish/vendor_completions.d/${PKG_NAME}.fish
+${PKG_NAME} gen-completion --shell bash --out-dir ${PREFIX}/etc/bash_completion.d/${PKG_NAME}
+${PKG_NAME} gen-completion --shell zsh --out-dir ${PREFIX}/share/zsh/site-functions/_${PKG_NAME}
+${PKG_NAME} gen-completion --shell fish --out-dir ${PREFIX}/share/fish/vendor_completions.d/${PKG_NAME}.fish
 
 # remove extra build file
 rm -f "${PREFIX}/.crates.toml"
