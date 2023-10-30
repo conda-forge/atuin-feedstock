@@ -1,5 +1,5 @@
 {% set name = "atuin" %}
-{% set version = "14.0.0" %}
+{% set version = "17.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,19 +7,19 @@ package:
 
 source:
   url: https://github.com/ellie/atuin/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: cccff6fcd27ab12038fc4be0f8418197813306d6210512850d21d2b749c6c797
+  sha256: b03d3a1597ba2bbd784612e730419c2cdc099311adf48518bd9c00d2799199f6
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ compiler('rust') }}
     - cargo-bundle-licenses
     - pkg-config
-    - rust
-    - sysroot_linux-64 =2.17  # [linux]
+    - sysroot_{{ target_platform }} =2.17  # [linux]
   host:
     - libsodium
   run:
@@ -32,7 +32,6 @@ test:
 about:
   home: https://github.com/ellie/{{ name }}
   license: MIT
-  license_family: MIT
   license_file:
     - LICENSE
     - THIRDPARTY.yml
