@@ -19,8 +19,7 @@ requirements:
     - {{ stdlib("c") }}
     - {{ compiler('rust') }}
     - cargo-bundle-licenses
-    - sysroot_{{ target_platform }} =2.17  # [linux]
-  run:
+    - protobuf
 
 test:
   commands:
