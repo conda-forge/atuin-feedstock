@@ -6,7 +6,7 @@ cargo-bundle-licenses \
     --format yaml \
     --output THIRDPARTY.yml
 
-cargo install --locked --root "${PREFIX}" --path atuin
+cargo install --locked --root "${PREFIX}" --path crates/atuin
 
 # strip debug symbols
 "${STRIP}" "${PREFIX}/bin/atuin"
