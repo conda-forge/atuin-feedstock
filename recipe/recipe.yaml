@@ -19,7 +19,7 @@ requirements:
     - ${{ stdlib("c") }}
     - ${{ compiler('rust') }}
     - cargo-bundle-licenses
-    - protobuf
+    - libprotobuf
 
 tests:
   - script:
