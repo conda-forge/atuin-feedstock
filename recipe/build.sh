@@ -9,6 +9,7 @@ cargo-bundle-licenses \
     --format yaml \
     --output THIRDPARTY.yml
 
+export PROTOC=${BUILD_PREFIX}/bin/protoc
 cargo install --bins --no-track --locked --root "${PREFIX}" --path crates/atuin
 
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" ]]; then
