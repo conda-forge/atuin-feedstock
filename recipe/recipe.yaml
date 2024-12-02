@@ -1,0 +1,39 @@
+context:
+  version: 18.3.0
+
+package:
+  name: atuin
+  version: ${{ version }}
+
+source:
+  url: https://github.com/atuinsh/atuin/archive/refs/tags/v${{ version }}.tar.gz
+  sha256: d05d978d1f1b6a633ac24a9ac9bde3b1dfb7416165b053ef54240fff898aded3
+
+build:
+  number: 0
+  skip: win
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
+    - ${{ compiler('rust') }}
+    - cargo-bundle-licenses
+    - libprotobuf
+
+tests:
+  - script:
+      - atuin --help
+
+about:
+  license: MIT
+  license_file:
+    - LICENSE
+    - THIRDPARTY.yml
+  summary: Improved shell history for zsh and bash
+  homepage: https://github.com/atuinsh/atuin
+  repository: https://github.com/atuinsh/atuin
+
+extra:
+  recipe-maintainers:
+    - danielnachun
