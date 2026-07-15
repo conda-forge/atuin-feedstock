@@ -1,5 +1,5 @@
 context:
-  version: "18.17.0"
+  version: "18.17.1"
 
 package:
   name: atuin
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/atuinsh/atuin/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 7fcc445c401683fe1b54eb02e0d119d9620558644d482f9f13d59753780169a7
+  sha256: 851c3f4870e4bd181b98d2dae60b9fd76ef30f05f16a85efa21ac7e7cf294862
 
 build:
   number: 0
