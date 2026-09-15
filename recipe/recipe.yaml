@@ -1,5 +1,5 @@
 context:
-  version: "18.18.1"
+  version: "18.19.0"
 
 package:
   name: atuin
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/atuinsh/atuin/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 4f5a7d01a7670279cec7dbfe2b48fb141ab2b01431b113a31c4aec12b93fbb67
+  sha256: fdb8268cdd5b13105db79e821f06c1c6624e0c5aee46befb0491e39af42fd4e6
 
 build:
   number: 0
@@ -20,6 +20,8 @@ requirements:
     - ${{ compiler('rust') }}
     - cargo-bundle-licenses
     - libprotobuf
+  host:
+    - openssl
 
 tests:
   - script:
