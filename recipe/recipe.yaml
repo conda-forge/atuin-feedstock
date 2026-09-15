@@ -20,6 +20,8 @@ requirements:
     - ${{ compiler('rust') }}
     - cargo-bundle-licenses
     - libprotobuf
+  host:
+    - openssl
 
 tests:
   - script:
