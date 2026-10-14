@@ -16,8 +16,8 @@ cargo install --bins --no-track --locked --root "${PREFIX}" --path crates/atuin
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" ]]; then
     mkdir -p ${PREFIX}/etc/bash_completion.d/${PKG_NAME}
     mkdir -p ${PREFIX}/share/zsh/site-functions/_${PKG_NAME}
-    mkdir -p ${PREFIX}/share/fish/vendor_completions.d/${PKG_NAME}.fish
+    mkdir -p ${PREFIX}/share/fish/vendor_completions.d
     ${PKG_NAME} gen-completion --shell bash --out-dir ${PREFIX}/etc/bash_completion.d/${PKG_NAME}
     ${PKG_NAME} gen-completion --shell zsh --out-dir ${PREFIX}/share/zsh/site-functions/_${PKG_NAME}
-    ${PKG_NAME} gen-completion --shell fish --out-dir ${PREFIX}/share/fish/vendor_completions.d/${PKG_NAME}.fish
+    ${PKG_NAME} gen-completion --shell fish --out-dir ${PREFIX}/share/fish/vendor_completions.d
 fi
