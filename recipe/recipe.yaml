@@ -10,7 +10,7 @@ source:
   sha256: fdfcaab891ecc33561372d6763b8c279112a0d10c7ddb3a3b464abe039045423
 
 build:
-  number: 0
+  number: 1
   skip: win
 
 requirements:
@@ -26,6 +26,16 @@ requirements:
 tests:
   - script:
       - atuin --help
+  - if: osx
+    then:
+      # Frameworks of the objc2 crates atuin uses; objc2 looks their classes up by name,
+      # so a missing one only shows up as a panic at runtime
+      script:
+        - otool -L $PREFIX/bin/atuin
+        - for f in AppKit CoreFoundation CoreGraphics Foundation IOKit OpenDirectory Security ServiceManagement SystemConfiguration; do otool -L $PREFIX/bin/atuin | grep -q "/$f.framework/" || { echo "$f.framework is not linked"; exit 1; }; done
+      requirements:
+        run:
+          - cctools
 
 about:
   license: MIT
